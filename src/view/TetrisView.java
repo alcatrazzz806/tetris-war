@@ -108,11 +108,18 @@ public class TetrisView extends JPanel implements ActionListener {
     
     public void actionPerformed(ActionEvent e) {
     	if(e.getSource() == startButton) {
+    		startButton.setText("Restart");
     		controller.restart();
     		this.grabFocus();
     	}
     	else if(e.getSource() == pauseButton) {
     		controller.pause();
+    		if(model.isPaused()) {
+    			pauseButton.setText("Resume");
+    		}
+    		else {
+    			pauseButton.setText("Pause");
+    		}
     		this.grabFocus();
     	}
     	else
