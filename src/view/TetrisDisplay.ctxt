@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=TetrisDisplay
+comment1.params=
+comment1.target=TetrisDisplay()
+comment2.params=controller
+comment2.target=TetrisDisplay(controller.TetrisController)
+comment3.params=
+comment3.target=void\ init()
+comment4.params=
+comment4.target=TetrisView\ getTetrisView()
+comment5.params=
+comment5.target=javax.swing.JLabel\ getStatusBar()
+comment6.params=
+comment6.target=javax.swing.JLabel\ getScoreDisplay()
+comment7.params=
+comment7.target=javax.swing.JButton\ getStartButton()
+comment8.params=
+comment8.target=javax.swing.JButton\ getPauseButton()
+comment9.params=index
+comment9.target=java.awt.Color\ getBlockColor(int)
+numComments=10
