@@ -13,14 +13,14 @@ public class TetrisController {
 	private Timer timer;
 	
 	public TetrisController() {
-		//display = new B10432018_Display(this);
-		display = new B10432034_Display(this);
+		display = new B10432018_Display(this);
+		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
 		model = new TetrisModel(view);
 		view.knowModel(model);
 		
-		timer = new Timer(700, view);
+		timer = new Timer(750, view);
 	}
 	
 	public void start() {
