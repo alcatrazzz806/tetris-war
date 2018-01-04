@@ -26,6 +26,7 @@ public class Block {
             {{-1, -1}, {0, -1}, {0, 0}, {0, 1}},	// L
             {{1, -1}, {0, -1}, {0, 0}, {0, 1}}		// J
 		};
+		
 		setBlockShape(Tetris_block.Empty);
 	}
 	
@@ -57,21 +58,23 @@ public class Block {
 	}
 	
 	public void setRandomShape() {
-		genCount++;
-		
-		if(genCount == 7) {
+		if(genCount == 0) {
 			Random random = ThreadLocalRandom.current();
 			for (int i = 0; i < genOrder.length - 1 ; i++) {
 				int index = random.nextInt(i + 1);
+				// Swap order
 				int x = genOrder[index];
 				genOrder[index] = genOrder[i];
 				genOrder[i] = x;
 			}
-			genCount = 0;
 		}
 		
 		Tetris_block[] values = Tetris_block.values();
 		setBlockShape(values[genOrder[genCount]]);
+		genCount++;
+		if (genCount == 7) {
+			genCount = 0;
+		}
 	}
 	
 	public int xMin() {

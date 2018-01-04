@@ -20,7 +20,7 @@ public class TetrisController {
 		model = new TetrisModel(view);
 		view.knowModel(model);
 		
-		timer = new Timer(750, view);
+		timer = new Timer(400, view);
 	}
 	
 	public void start() {
