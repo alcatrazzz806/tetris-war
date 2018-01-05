@@ -56,7 +56,7 @@ public class Block {
 	public Tetris_block getBlockShape() {
 		return blockShape;
 	}
-	
+		
 	public void setRandomShape() {
 		if(genCount == 0) {
 			Random random = ThreadLocalRandom.current();

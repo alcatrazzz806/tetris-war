@@ -131,7 +131,7 @@ public class TetrisView extends JPanel implements ActionListener {
 
             int keycode = e.getKeyCode();
             
-            if (keycode == 'r' || keycode == 'R') {
+            if (keycode == 'r' || keycode == 'R' || keycode == 's' || keycode == 'S') {
                 controller.restart();
                 return;
             }

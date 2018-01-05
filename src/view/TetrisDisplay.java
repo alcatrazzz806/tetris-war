@@ -9,9 +9,13 @@ public class TetrisDisplay extends JFrame {
     private static final long serialVersionUID = 1L;
     protected static JLabel statusBar;
     protected static JLabel scoreDisplay;
+    protected static JLabel scoreLabel;
+    protected static JLabel nextLabel;
+    protected static JTextArea commandLabel;
     protected static JButton startButton;
     protected static JButton pauseButton;
     protected static TetrisView view;
+    protected static NextBlock next;
     
     private Color colors[] = { new Color(0, 0, 0), new Color(204, 102, 102),
             new Color(102, 204, 102), new Color(102, 102, 204),
@@ -26,7 +30,8 @@ public class TetrisDisplay extends JFrame {
         scoreDisplay = new JLabel("0");
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
-            view = new TetrisView(this, controller);
+        view = new TetrisView(this, controller);
+        next = new NextBlock(this, controller);
     }
     
     public void init() {
@@ -44,6 +49,10 @@ public class TetrisDisplay extends JFrame {
     
     public TetrisView getTetrisView() {
         return view;
+    }
+    
+    public NextBlock getNextBlock() {
+        return next;
     }
     
     public JLabel getStatusBar() {
