@@ -103,7 +103,7 @@ public class TetrisModel {
         currentY = boardHeight - 1 + currentBlock.yMin();
 
         if (!tryMove(0, 0)) {
-            currentBlock.setBlockShape(Block.Tetris_block.Empty);
+            nextBlock.setBlockShape(Block.Tetris_block.Empty);
             started = false;
             fallingFinished = true;
             view.setStatusText("Game Over");
