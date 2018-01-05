@@ -1,15 +1,22 @@
 package model;
 
 import view.TetrisView;
+import model.Block.Tetris_block;
+import view.NextBlock;
 
 public class TetrisModel {
 	private TetrisView view;
+	private NextBlock next;
 	
 	private Block currentBlock;
+	private Block nextBlock;
 	private Block.Tetris_block[] board;
+	private Block.Tetris_block[] nextboard;
 	
 	private int boardWidth = 10;
 	private int boardHeight = 20;
+	private int nextboardWidth = 4;
+	private int nextboardHeight = 5;
 	private boolean fallingFinished = false;
 	private boolean started = false;
 	private boolean paused = false;
@@ -18,14 +25,17 @@ public class TetrisModel {
 	private int currentX = 0;
 	private int currentY = 0;
 	
-	public TetrisModel(TetrisView tetrisView) {
+	public TetrisModel(TetrisView tetrisView, NextBlock nextblock) {
 		this.view = tetrisView;
+		this.next = nextblock;
 		currentBlock = new Block();
+		nextBlock = new Block();
 		board = new Block.Tetris_block[boardWidth * boardHeight];
+		nextboard = new Block.Tetris_block[nextboardWidth * nextboardHeight];
 		
 		clearBoard();
 	}
-	
+		
 	public boolean isStarted() {
 		return started;
 	}
@@ -68,18 +78,32 @@ public class TetrisModel {
 		}
 	}
 	
+	public void clearNextBoard() {
+		for (int i = 0; i < nextboardWidth * nextboardHeight; i++) {
+			nextboard[i] = Block.Tetris_block.Empty;
+		}
+	}
+	
 	public Block.Tetris_block shapeAt(int x, int y) {
         return board[(y * boardWidth) + x];
     }
 	
+	public void initialBlock()
+    {
+		currentBlock.setBlockShape(Tetris_block.Empty);
+        nextBlock.setRandomShape();
+    }
+	
 	public void newBlock()
     {
-        currentBlock.setRandomShape();
+        currentBlock.setBlockShape(nextBlock.getBlockShape());
+        nextBlock.setRandomShape();
+        next.repaint();
         currentX = boardWidth / 2 + 1;
         currentY = boardHeight - 1 + currentBlock.yMin();
 
         if (!tryMove(0, 0)) {
-            currentBlock.setBlockShape(Block.Tetris_block.Empty);
+            nextBlock.setBlockShape(Block.Tetris_block.Empty);
             started = false;
             fallingFinished = true;
             view.setStatusText("Game Over");
@@ -194,6 +218,20 @@ public class TetrisModel {
     
     public Block getCurrentBlock() {
         return currentBlock;
+    }
+    
+    public int getNextBoardWidth()
+    {
+        return this.nextboardWidth;
+    }
+    
+    public int getNextBoardHeight()
+    {
+        return this.nextboardHeight;
+    }
+    
+    public Block getNextBlock() {
+        return nextBlock;
     }
     
     public int getCurrentX()
