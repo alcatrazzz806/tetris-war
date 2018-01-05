@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Block {
 	public enum Tetris_block {
@@ -10,6 +11,8 @@ public class Block {
 	private Tetris_block blockShape;
 	private int[][] coordinates;
 	private int[][][] coordTable;
+	private static int[] genOrder = {1, 2, 3, 4, 5, 6, 7};
+	private static int genCount = 0;
 	
 	public Block() {
 		coordinates = new int[4][2];
@@ -23,6 +26,7 @@ public class Block {
             {{-1, -1}, {0, -1}, {0, 0}, {0, 1}},	// L
             {{1, -1}, {0, -1}, {0, 0}, {0, 1}}		// J
 		};
+		
 		setBlockShape(Tetris_block.Empty);
 	}
 	
@@ -54,10 +58,23 @@ public class Block {
 	}
 	
 	public void setRandomShape() {
-		Random random = new Random();
-		int x  = Math.abs(random.nextInt()) % 7 + 1;
+		if(genCount == 0) {
+			Random random = ThreadLocalRandom.current();
+			for (int i = 0; i < genOrder.length - 1 ; i++) {
+				int index = random.nextInt(i + 1);
+				// Swap order
+				int x = genOrder[index];
+				genOrder[index] = genOrder[i];
+				genOrder[i] = x;
+			}
+		}
+		
 		Tetris_block[] values = Tetris_block.values();
-		setBlockShape(values[x]);
+		setBlockShape(values[genOrder[genCount]]);
+		genCount++;
+		if (genCount == 7) {
+			genCount = 0;
+		}
 	}
 	
 	public int xMin() {
