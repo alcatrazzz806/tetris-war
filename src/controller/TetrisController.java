@@ -7,20 +7,24 @@ import javax.swing.*;
 
 public class TetrisController {
 	private TetrisView view;
+	private NextBlock next;
 	private TetrisModel model;
 	private TetrisDisplay display;
 	
 	private Timer timer;
 	
 	public TetrisController() {
+		display = new B10432009_Display(this);
 		//display = new B10432018_Display(this);
-		display = new B10432034_Display(this);
+		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
-		model = new TetrisModel(view);
+		next = display.getNextBlock();
+		model = new TetrisModel(view, next);
+		next.knowModel(model);
 		view.knowModel(model);
 		
-		timer = new Timer(700, view);
+		timer = new Timer(800, view);
 	}
 	
 	public void start() {
@@ -29,6 +33,8 @@ public class TetrisController {
         model.setFallingFinished(false);
         model.setScore(0);
         model.clearBoard();
+        model.clearNextBoard();
+        model.initialBlock();
         model.newBlock();
         timer.start();
     }
@@ -41,6 +47,8 @@ public class TetrisController {
         model.setFallingFinished(false);
         model.setScore(0);
         model.clearBoard();
+        model.clearNextBoard();
+        model.initialBlock();
         model.newBlock();
         timer.start();
     }
@@ -49,6 +57,22 @@ public class TetrisController {
         if (model.isFallingFinished()) {
             model.setFallingFinished(!model.isFallingFinished());
             model.newBlock();
+            if(1000 <= model.getScore() && model.getScore() <= 2000)
+            {
+            	timer.setDelay(600);
+            }
+            else if(2000 <= model.getScore() && model.getScore() <= 3000)
+            {
+            	timer.setDelay(500);
+            }
+            else if(3000 <= model.getScore() && model.getScore() <= 3500)
+            {
+            	timer.setDelay(300);
+            }
+            else if(3500 <= model.getScore())
+            {
+            	timer.setDelay(200);
+            }
         } else {
             dropOne();
         }
