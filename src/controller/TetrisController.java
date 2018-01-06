@@ -15,7 +15,8 @@ public class TetrisController {
 	
 	public TetrisController() {
 		//display = new B10432009_Display(this);
-		display = new B10432018_Display(this);
+		//display = new B10432018_Display(this);
+		display = new B10432032_Display(this);
 		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
@@ -32,6 +33,7 @@ public class TetrisController {
         model.setStarted(true);
         model.setFallingFinished(false);
         model.setScore(0);
+        model.setLine(0);
         model.clearBoard();
         model.clearNextBoard();
         model.initialBlock();
@@ -46,6 +48,7 @@ public class TetrisController {
         model.setStarted(true);
         model.setFallingFinished(false);
         model.setScore(0);
+        model.setLine(0);
         model.clearBoard();
         model.clearNextBoard();
         model.initialBlock();
