@@ -106,6 +106,7 @@ public class TetrisModel {
             nextBlock.setBlockShape(Block.Tetris_block.Empty);
             started = false;
             fallingFinished = true;
+            paused = true;
             view.setStatusText("Game Over");
         }
     }

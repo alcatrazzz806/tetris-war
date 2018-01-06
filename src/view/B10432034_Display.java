@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class B10432034_Display extends TetrisDisplay {
-	//private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	private Color colors[] = { 
 			new Color(0, 0, 0), new Color(255, 255, 255),

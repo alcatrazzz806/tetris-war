@@ -14,8 +14,8 @@ public class TetrisController {
 	private Timer timer;
 	
 	public TetrisController() {
-		display = new B10432009_Display(this);
-		//display = new B10432018_Display(this);
+		//display = new B10432009_Display(this);
+		display = new B10432018_Display(this);
 		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
@@ -54,7 +54,8 @@ public class TetrisController {
     }
 	
 	public void gameAction() {
-        if (model.isFallingFinished()) {
+		if (model.isPaused()) { }
+		else if (model.isFallingFinished()) {
             model.setFallingFinished(!model.isFallingFinished());
             model.newBlock();
             if(1000 <= model.getScore() && model.getScore() <= 2000)
