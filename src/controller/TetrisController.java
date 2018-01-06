@@ -50,6 +50,8 @@ public class TetrisController {
         model.clearNextBoard();
         model.initialBlock();
         model.newBlock();
+        
+        timer.setDelay(800);
         timer.start();
     }
 	
@@ -58,7 +60,11 @@ public class TetrisController {
 		else if (model.isFallingFinished()) {
             model.setFallingFinished(!model.isFallingFinished());
             model.newBlock();
-            if(1000 <= model.getScore() && model.getScore() <= 2000)
+            if (0 <= model.getScore() && model.getScore() <= 1000)
+            {
+                timer.setDelay(800);
+            }
+            else if(1000 <= model.getScore() && model.getScore() <= 2000)
             {
             	timer.setDelay(600);
             }
