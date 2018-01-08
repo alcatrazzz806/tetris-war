@@ -34,7 +34,7 @@ public class B10432034_Display extends TetrisDisplay {
         add(scoreLabel);
         */
         scoreDisplay.setHorizontalAlignment(SwingConstants.CENTER);
-        scoreDisplay.setFont(new Font("Serif", Font.BOLD, 24));
+        scoreDisplay.setFont(new Font("ROMAN_BASELINE ", Font.BOLD, 24));
         scoreDisplay.setForeground(Color.WHITE);
         scoreDisplay.setOpaque(true);
         scoreDisplay.setBackground(Color.BLACK);
@@ -44,7 +44,7 @@ public class B10432034_Display extends TetrisDisplay {
 
         statusBar.setHorizontalAlignment(SwingConstants.CENTER);
         statusBar.setBounds(140, 10, 380, 25);
-        statusBar.setFont(new Font("Serif", Font.BOLD, 20));
+        statusBar.setFont(new Font("ROMAN_BASELINE ", Font.BOLD, 20));
         statusBar.setForeground(Color.WHITE);
         add(statusBar);
         
@@ -65,7 +65,7 @@ public class B10432034_Display extends TetrisDisplay {
         next.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         add(next);
         
-        commandLabel.setFont(new Font("Serif", Font.BOLD, 20));
+        commandLabel.setFont(new Font("ROMAN_BASELINE ", Font.BOLD, 20));
 
         //commandLabel.setBackground(SystemColor.control);
         commandLabel.setBackground(Color.BLACK);
