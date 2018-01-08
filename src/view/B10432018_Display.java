@@ -32,17 +32,16 @@ public class B10432018_Display extends TetrisDisplay {
     };
 	
 	public B10432018_Display(TetrisController controller) {
+		super(controller);
 		try {
 			backGround = new BackGround();
 		} catch (IOException e) {
 		    throw new RuntimeException(e);
 		}
-		statusBar = new JLabel("Press Start!");
-		scoreDisplay = new JLabel("0");
-		startButton = new JButton("Start");
-		pauseButton = new JButton("Pause");
-		next = new NextBlock(this, controller);
-		view = new TetrisView(this, controller);
+		statusBar.setText("Press Start!");
+		scoreDisplay.setText("0");
+		startButton.setText("Start!");
+		pauseButton.setText("Pause");
 	}
 	
 	public void init() {

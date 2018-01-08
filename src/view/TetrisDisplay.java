@@ -30,6 +30,11 @@ public class TetrisDisplay extends JFrame {
     public TetrisDisplay(TetrisController controller) {
         statusBar = new JLabel("Press Start!");
         scoreDisplay = new JLabel("0");
+        scoreLabel = new JLabel();
+        nextLabel = new JLabel();
+        lineLabel = new JLabel();
+        lineDisplay = new JLabel();
+        commandLabel = new JTextArea();
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
         view = new TetrisView(this, controller);

@@ -16,15 +16,12 @@ public class B10432009_Display extends TetrisDisplay {
     };
 	
 	public B10432009_Display(TetrisController controller) {
-		statusBar = new JLabel("Press R or S to Start!");
-		scoreLabel = new JLabel("Score");
-		nextLabel = new JLabel("Next");
-		commandLabel = new JTextArea("Command"+ "\n" + "s\r: start" + "\n" + "p: pause" + "\n" + "r: restart");
-		startButton = new JButton("Start");
-		pauseButton = new JButton("Pause");
-		scoreDisplay = new JLabel("0");
-		next = new NextBlock(this, controller);
-		view = new TetrisView(this, controller);
+		super(controller);
+		statusBar.setText("Press R or S to Start!");
+		scoreLabel.setText("Score");
+		nextLabel.setText("Next");
+		commandLabel.setText("Command"+ "\n" + "s\r: start" + "\n" + "p: pause" + "\n" + "r: restart");
+		scoreDisplay.setText("0");
 	}
 	
 	public void init() {
