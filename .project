@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/resources/B10432018_backGround.JPG</name>
-			<type>1</type>
-			<location>C:/Users/Arthur Li/Documents/GitHub/tetris-war/src/resources/B10432018_backGround.JPG</location>
-		</link>
-	</linkedResources>
 </projectDescription>

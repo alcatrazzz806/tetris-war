@@ -1,9 +1,8 @@
 #BlueJ class context
-comment0.target=B10432018_Display
-comment1.params=controller
-comment1.target=B10432018_Display(controller.TetrisController)
-comment2.params=
-comment2.target=void\ init()
-comment3.params=index
-comment3.target=java.awt.Color\ getBlockColor(int)
-numComments=4
+comment0.params=controller
+comment0.target=B10432018_Display(controller.TetrisController)
+comment1.params=
+comment1.target=void\ init()
+comment2.params=index
+comment2.target=java.awt.Color\ getBlockColor(int)
+numComments=3
