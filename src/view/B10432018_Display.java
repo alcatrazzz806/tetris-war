@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class B10432018_Display extends TetrisDisplay {
 	private static final long serialVersionUID = 1L;
+	private JLabel nextBorder;
 	
 	class BackGround extends JPanel {
 		private static final long serialVersionUID = 1L;
@@ -42,6 +43,7 @@ public class B10432018_Display extends TetrisDisplay {
 		scoreDisplay.setText("0");
 		startButton.setText("Start!");
 		pauseButton.setText("Pause");
+		nextBorder = new JLabel();
 	}
 	
 	public void init() {
@@ -78,8 +80,13 @@ public class B10432018_Display extends TetrisDisplay {
         
         next.setBounds(423, 250, 80, 100);
         next.setBackground(Color.BLACK);
-        next.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 2));
         add(next);
+        
+        nextBorder.setOpaque(true);
+        nextBorder.setBounds(411, 238, 104, 124);
+        nextBorder.setBackground(Color.BLACK);
+        nextBorder.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 2));
+        add(nextBorder);
         
         backGround.setBounds(0, 0, 530, 850);
 		backGround.setBackground(Color.DARK_GRAY);
