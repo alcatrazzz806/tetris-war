@@ -24,6 +24,7 @@ public class B10432032_Display extends TetrisDisplay {
         nextLabel = new JLabel("NEXT");
         scoreDisplay = new JLabel("0");        
         lineDisplay = new JLabel("0");
+        testLabel = new JLabel("Press s to start");
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
         view = new TetrisView(this, controller);
@@ -32,62 +33,67 @@ public class B10432032_Display extends TetrisDisplay {
 	    
 	    public void init() {
 	        setLayout(null);
-	        
+	        	        
 	        scoreLabel.setHorizontalAlignment(JLabel.CENTER);
-	        scoreLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+	        scoreLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 	        scoreLabel.setForeground(Color.GRAY.darker());
-	        scoreLabel.setBounds(405, 240, 100, 100);
+	        scoreLabel.setBounds(350, 230, 100, 100);
 	        scoreLabel.setVisible(true);
 			add(scoreLabel);
 			
 			scoreDisplay.setHorizontalAlignment(JLabel.CENTER);
-			scoreDisplay.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+			scoreDisplay.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 			scoreDisplay.setForeground(Color.DARK_GRAY.darker());
-			scoreDisplay.setBounds(405, 270, 100, 100);
+			scoreDisplay.setBounds(350, 250, 100, 100);
 			add(scoreDisplay);
 			
 			lineLabel.setHorizontalAlignment(JLabel.CENTER);
-			lineLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+			lineLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 			lineLabel.setForeground(Color.GRAY.darker());
-			lineLabel.setBounds(405, 320, 100, 100);
+			lineLabel.setBounds(350, 300, 100, 100);
 			lineLabel.setVisible(true);
 			add(lineLabel);
 				
 			lineDisplay.setHorizontalAlignment(JLabel.CENTER);
-			lineDisplay.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+			lineDisplay.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 			lineDisplay.setForeground(Color.DARK_GRAY.darker());
-			lineDisplay.setBounds(405, 350, 100, 100);
+			lineDisplay.setBounds(350, 320, 100, 100);
 			add(lineDisplay);
 	        
 			nextLabel.setHorizontalAlignment(JLabel.CENTER);
-	        nextLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+	        nextLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
 	        nextLabel.setForeground(Color.GRAY.darker());
-	        nextLabel.setBounds(405, 60, 100, 100);
+	        nextLabel.setBounds(350, 40, 100, 100);
 			add(nextLabel);
 			
 			statusBar.setHorizontalAlignment(JLabel.CENTER);
-			statusBar.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 28));
+			statusBar.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 22));
 	        statusBar.setForeground(Color.BLACK);
-	        statusBar.setBounds(50,10,350,50);
-			add(statusBar);
+	        statusBar.setBounds(55,0,350,50);
+			//add(statusBar);
 			
-	        startButton.setBounds(415, 550, 100, 50);
-			add(startButton);
+			testLabel.setHorizontalAlignment(JLabel.CENTER);
+			testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 22));
+			testLabel.setForeground(Color.WHITE.darker());
+			testLabel.setBounds(25,35,280,560);
+			add(testLabel);
 			
-			pauseButton.setBounds(415, 650, 100, 50);
-			add(pauseButton);
+	        startButton.setBounds(350, 400, 100, 50);
+			//add(startButton);
 			
-	        view.setBounds(25, 60, 350, 700);
+			pauseButton.setBounds(350, 500, 100, 50);
+			//add(pauseButton);
+			
+	        view.setBounds(25, 35, 280, 560);
 	        view.setBackground(Color.BLACK);	// panel 
-	       // view.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 	        add(view);
 	        
-	        next.setBounds(405, 120, 100, 120);
+	        next.setBounds(350, 100, 100, 120);
 	        next.setBackground(Color.WHITE);	// panel 
 	        add(next);
 	        	        
-	        setSize(500, 800); // frame
-	        setPreferredSize(new Dimension(550, 850));
+	        //setSize(500, 600); // frame
+	        setPreferredSize(new Dimension(500, 650));
 	        setTitle("Tetris");
 	        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // frame
 	        pack();
@@ -100,4 +106,5 @@ public class B10432032_Display extends TetrisDisplay {
 	    public Color getBlockColor(int index) {
 	        return colors[index];
 	    }
+
 }

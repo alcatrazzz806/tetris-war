@@ -16,6 +16,7 @@ public class TetrisView extends JPanel implements ActionListener {
 	private JLabel statusBar;
 	private JLabel scoreDisplay;
 	private JLabel lineDisplay;
+	private JLabel testLabel;
 	private JButton startButton;
 	private JButton pauseButton;
 	
@@ -31,6 +32,7 @@ public class TetrisView extends JPanel implements ActionListener {
 		scoreDisplay = display.getScoreDisplay();
 		lineDisplay = display.getLineDisplay();
 		startButton = display.getStartButton();
+		testLabel = display.getTestLabel();
 		startButton.addActionListener(this);
 		pauseButton = display.getPauseButton();
 		pauseButton.addActionListener(this);
@@ -87,6 +89,20 @@ public class TetrisView extends JPanel implements ActionListener {
 		lineDisplay.setText(line);
 	}
 	
+	public void setTestLabel(String line) {
+		testLabel.setText(line);
+	}
+	
+	public void switchTestLabelOn() {
+		testLabel.setForeground(Color.WHITE);
+		testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+	}
+	
+	public void switchTestLabelOff() {
+		testLabel.setForeground(Color.BLACK);
+		testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+	}
+	
 	void start() {
         controller.start();
     }
@@ -122,9 +138,13 @@ public class TetrisView extends JPanel implements ActionListener {
     		controller.pause();
     		if(model.isPaused()) {
     			pauseButton.setText("Resume");
+    			testLabel.setText("PAUSE");
+    			switchTestLabelOn();
     		}
     		else {
     			pauseButton.setText("Pause");
+    			testLabel.setText("PAUSE");
+    			switchTestLabelOff();
     		}
     		this.grabFocus();
     	}
@@ -139,6 +159,7 @@ public class TetrisView extends JPanel implements ActionListener {
             
             if (keycode == 'r' || keycode == 'R' || keycode == 's' || keycode == 'S') {
                 controller.restart();
+                startButton.setText("Restart");
                 return;
             }
             
@@ -148,9 +169,18 @@ public class TetrisView extends JPanel implements ActionListener {
 
             if (keycode == 'p' || keycode == 'P') {
                 controller.pause();
+                if(model.isPaused()) {
+        			pauseButton.setText("Resume");
+        			testLabel.setText("PAUSE");
+        			switchTestLabelOn();
+        		}
+        		else {
+        			pauseButton.setText("Pause");
+        			testLabel.setText("PAUSE");
+        			switchTestLabelOff();
+        		}
                 return;
             }
-
             if (model.isPaused())
                 return;
 

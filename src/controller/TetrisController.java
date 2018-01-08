@@ -14,9 +14,9 @@ public class TetrisController {
 	private Timer timer;
 	
 	public TetrisController() {
-		display = new B10432009_Display(this);
+		//display = new B10432009_Display(this);
 		//display = new B10432018_Display(this);
-		//display = new B10432032_Display(this);
+		display = new B10432032_Display(this);
 		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
@@ -44,6 +44,7 @@ public class TetrisController {
 	public void restart() {
 		view.setStatusText("Playing");
 		view.setScoreDisplay("0");
+		view.setLineDisplay("0");
         model.setPaused(false);
         model.setStarted(true);
         model.setFallingFinished(false);
