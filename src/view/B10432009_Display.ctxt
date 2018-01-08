@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=controller
-comment0.target=B10432034_Display(controller.TetrisController)
+comment0.target=B10432009_Display(controller.TetrisController)
 comment1.params=
 comment1.target=void\ init()
 comment2.params=index

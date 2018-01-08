@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=display\ TC
+comment0.target=NextBlock(TetrisDisplay,\ controller.TetrisController)
+comment1.params=newModel
+comment1.target=void\ knowModel(model.TetrisModel)
+comment2.params=g
+comment2.target=void\ paint(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ start()
+comment4.params=
+comment4.target=int\ squareWidth()
+comment5.params=
+comment5.target=int\ squareHeight()
+comment6.params=g\ x\ y\ block
+comment6.target=void\ drawSquare(java.awt.Graphics,\ int,\ int,\ model.Block.Tetris_block)
+numComments=7
