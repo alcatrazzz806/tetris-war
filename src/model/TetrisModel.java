@@ -22,6 +22,7 @@ public class TetrisModel {
 	private boolean paused = false;
 	
 	private int score = 0;
+	private int line = 0;
 	private int currentX = 0;
 	private int currentY = 0;
 	
@@ -62,6 +63,10 @@ public class TetrisModel {
 	
 	public void setScore(int in) {
 		score = in;
+	}
+	
+	public void setLine(int in) {
+		line = in;
 	}
 	
 	public int getScore() {
@@ -106,6 +111,7 @@ public class TetrisModel {
             nextBlock.setBlockShape(Block.Tetris_block.Empty);
             started = false;
             fallingFinished = true;
+            paused = true;
             view.setStatusText("Game Over");
         }
     }
@@ -185,7 +191,9 @@ public class TetrisModel {
             	score += 800;
             	break;
             }
+            line += numFullLines;
             view.setScoreDisplay(String.valueOf(score));
+            view.setLineDisplay(String.valueOf(line));
             fallingFinished = true;
             currentBlock.setBlockShape(Block.Tetris_block.Empty);
             view.repaint();

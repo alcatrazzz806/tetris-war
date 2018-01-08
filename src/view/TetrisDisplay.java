@@ -11,6 +11,8 @@ public class TetrisDisplay extends JFrame {
     protected static JLabel scoreDisplay;
     protected static JLabel scoreLabel;
     protected static JLabel nextLabel;
+    protected static JLabel lineLabel;
+    protected static JLabel lineDisplay;
     protected static JTextArea commandLabel;
     protected static JButton startButton;
     protected static JButton pauseButton;
@@ -28,6 +30,11 @@ public class TetrisDisplay extends JFrame {
     public TetrisDisplay(TetrisController controller) {
         statusBar = new JLabel("Press Start!");
         scoreDisplay = new JLabel("0");
+        scoreLabel = new JLabel();
+        nextLabel = new JLabel();
+        lineLabel = new JLabel();
+        lineDisplay = new JLabel();
+        commandLabel = new JTextArea();
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
         view = new TetrisView(this, controller);
@@ -61,6 +68,10 @@ public class TetrisDisplay extends JFrame {
     
     public JLabel getScoreDisplay() {
         return scoreDisplay;
+    }
+
+    public JLabel getLineDisplay() {
+        return lineDisplay;
     }
     
     public JButton getStartButton() {

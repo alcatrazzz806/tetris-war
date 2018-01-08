@@ -8,6 +8,9 @@ import java.awt.*;
 public class B10432009_Display extends TetrisDisplay {
 	private static final long serialVersionUID = 1L;
 	
+	protected static JLabel viewBorder;
+	protected static JLabel nextBorder;
+	
 	private Color colors[] = { 
 			new Color(0, 0, 0), new Color(220, 20, 60),
             new Color(50, 205, 50), new Color(0, 191, 255),
@@ -16,19 +19,19 @@ public class B10432009_Display extends TetrisDisplay {
     };
 	
 	public B10432009_Display(TetrisController controller) {
-		statusBar = new JLabel("Press R or S to Start!");
-		scoreLabel = new JLabel("Score");
-		nextLabel = new JLabel("Next");
-		commandLabel = new JTextArea("Command"+ "\n" + "s\r: start" + "\n" + "p: pause" + "\n" + "r: restart");
-		startButton = new JButton("Start");
-		pauseButton = new JButton("Pause");
-		scoreDisplay = new JLabel("0");
-		next = new NextBlock(this, controller);
-		view = new TetrisView(this, controller);
+		super(controller);
+		statusBar.setText("Press R or S to Start!");
+		scoreLabel.setText("Score");
+		nextLabel.setText("Next");
+		commandLabel.setText("Command"+ "\n" + "s\r: start" + "\n" + "p: pause" + "\n" + "r: restart");
+		scoreDisplay.setText("0");
 	}
 	
 	public void init() {
 		setLayout(null);
+
+		viewBorder = new JLabel();
+		nextBorder = new JLabel();
 
 		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		scoreLabel.setFont(new Font("Serif", Font.BOLD, 24));
@@ -51,24 +54,34 @@ public class B10432009_Display extends TetrisDisplay {
 		
 		view.setBounds(10, 40, 380, 760);
 		view.setBackground(Color.WHITE);
-		view.setBorder(BorderFactory.createLineBorder(Color.black, 3));
         add(view);
+        
+        viewBorder.setBounds(6, 36, 388, 768);
+        viewBorder.setOpaque(true);
+        viewBorder.setBackground(Color.BLACK);
+        add(viewBorder);
         
         nextLabel.setHorizontalAlignment(SwingConstants.CENTER);
         nextLabel.setFont(new Font("Serif", Font.BOLD, 24));
         nextLabel.setForeground(Color.BLACK);
         nextLabel.setBounds(420, 210, 70, 40);
 		add(nextLabel);
-        
+		
         next.setBounds(410, 250, 90, 120);
         next.setBackground(Color.WHITE);
-        next.setBorder(BorderFactory.createLineBorder(Color.black, 2));
+        //next.setBorder(BorderFactory.createLineBorder(Color.black, 2));
         add(next);
+        
+		nextBorder.setBounds(406, 246, 98, 128);
+        nextBorder.setOpaque(true);
+        nextBorder.setBackground(Color.BLACK);
+        add(nextBorder);
         
         commandLabel.setFont(new Font("Serif", Font.BOLD, 20));
         commandLabel.setForeground(Color.BLACK);
         commandLabel.setBackground(SystemColor.control);
         commandLabel.setBounds(410, 400, 100, 300);
+        commandLabel.setFocusable(false);
 		add(commandLabel);
         
         setSize(500, 800);

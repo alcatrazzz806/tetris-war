@@ -15,6 +15,7 @@ public class TetrisView extends JPanel implements ActionListener {
 
 	private JLabel statusBar;
 	private JLabel scoreDisplay;
+	private JLabel lineDisplay;
 	private JButton startButton;
 	private JButton pauseButton;
 	
@@ -28,6 +29,7 @@ public class TetrisView extends JPanel implements ActionListener {
 		controller = TC;
 		statusBar = display.getStatusBar();
 		scoreDisplay = display.getScoreDisplay();
+		lineDisplay = display.getLineDisplay();
 		startButton = display.getStartButton();
 		startButton.addActionListener(this);
 		pauseButton = display.getPauseButton();
@@ -79,6 +81,10 @@ public class TetrisView extends JPanel implements ActionListener {
 	
 	public void setScoreDisplay(String score) {
 		scoreDisplay.setText(score);
+	}
+	
+	public void setLineDisplay(String line) {
+		lineDisplay.setText(line);
 	}
 	
 	void start() {

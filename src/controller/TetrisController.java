@@ -16,6 +16,7 @@ public class TetrisController {
 	public TetrisController() {
 		display = new B10432009_Display(this);
 		//display = new B10432018_Display(this);
+		//display = new B10432032_Display(this);
 		//display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
@@ -32,6 +33,7 @@ public class TetrisController {
         model.setStarted(true);
         model.setFallingFinished(false);
         model.setScore(0);
+        model.setLine(0);
         model.clearBoard();
         model.clearNextBoard();
         model.initialBlock();
@@ -46,18 +48,26 @@ public class TetrisController {
         model.setStarted(true);
         model.setFallingFinished(false);
         model.setScore(0);
+        model.setLine(0);
         model.clearBoard();
         model.clearNextBoard();
         model.initialBlock();
         model.newBlock();
+        
+        timer.setDelay(800);
         timer.start();
     }
 	
 	public void gameAction() {
-        if (model.isFallingFinished()) {
+		if (model.isPaused()) { }
+		else if (model.isFallingFinished()) {
             model.setFallingFinished(!model.isFallingFinished());
             model.newBlock();
-            if(1000 <= model.getScore() && model.getScore() <= 2000)
+            if (0 <= model.getScore() && model.getScore() <= 1000)
+            {
+                timer.setDelay(800);
+            }
+            else if(1000 <= model.getScore() && model.getScore() <= 2000)
             {
             	timer.setDelay(600);
             }
