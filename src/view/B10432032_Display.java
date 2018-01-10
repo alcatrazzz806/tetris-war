@@ -18,17 +18,16 @@ public class B10432032_Display extends TetrisDisplay {
 	public B10432032_Display() { }
 	    
     public B10432032_Display(TetrisController controller) {
-        statusBar = new JLabel("TETRIS");
-        scoreLabel = new JLabel("SCORE");
-        lineLabel = new JLabel("LINES");        
-        nextLabel = new JLabel("NEXT");
-        scoreDisplay = new JLabel("0");        
-        lineDisplay = new JLabel("0");
-        testLabel = new JLabel("Press s to start");
-        startButton = new JButton("Start");
-        pauseButton = new JButton("Pause");
-        view = new TetrisView(this, controller);
-        next = new NextBlock(this, controller);
+    	super(controller);
+        statusBar.setText("TETRIS");
+        scoreLabel.setText("SCORE");
+        lineLabel.setText("LINES");        
+        nextLabel.setText("NEXT");
+        scoreDisplay.setText("0");        
+        lineDisplay.setText("0");
+        testLabel.setText("Press s to start");
+        startButton.setText("Start");
+        pauseButton.setText("Pause");
     }
 	    
 	    public void init() {
