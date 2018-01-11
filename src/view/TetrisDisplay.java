@@ -13,6 +13,7 @@ public class TetrisDisplay extends JFrame {
     protected static JLabel nextLabel;
     protected static JLabel lineLabel;
     protected static JLabel lineDisplay;
+    protected static JLabel testLabel;
     protected static JTextArea commandLabel;
     protected static JButton startButton;
     protected static JButton pauseButton;
@@ -34,6 +35,7 @@ public class TetrisDisplay extends JFrame {
         nextLabel = new JLabel();
         lineLabel = new JLabel();
         lineDisplay = new JLabel();
+        testLabel = new JLabel();
         commandLabel = new JTextArea();
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
@@ -74,6 +76,10 @@ public class TetrisDisplay extends JFrame {
         return lineDisplay;
     }
     
+    public JLabel getTestLabel() {
+		return testLabel;
+	}
+	
     public JButton getStartButton() {
         return startButton;
     }

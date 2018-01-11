@@ -113,6 +113,8 @@ public class TetrisModel {
             fallingFinished = true;
             paused = true;
             view.setStatusText("Game Over");
+            view.switchTestLabelOn();
+            view.setTestLabel("GAME OVER");
         }
     }
 	

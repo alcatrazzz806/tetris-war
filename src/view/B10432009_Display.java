@@ -10,12 +10,13 @@ public class B10432009_Display extends TetrisDisplay {
 	
 	protected static JLabel viewBorder;
 	protected static JLabel nextBorder;
+	protected static JLabel command;
 	
 	private Color colors[] = { 
 			new Color(0, 0, 0), new Color(220, 20, 60),
             new Color(50, 205, 50), new Color(0, 191, 255),
             new Color(153, 50, 204), new Color(255, 215, 0),
-            new Color(255, 45, 0), new Color(0, 0, 205)
+            new Color(255, 140, 0), new Color(0, 0, 205)
     };
 	
 	public B10432009_Display(TetrisController controller) {
@@ -23,7 +24,7 @@ public class B10432009_Display extends TetrisDisplay {
 		statusBar.setText("Press R or S to Start!");
 		scoreLabel.setText("Score");
 		nextLabel.setText("Next");
-		commandLabel.setText("Command"+ "\n" + "s\r: start" + "\n" + "p: pause" + "\n" + "r: restart");
+		commandLabel.setText("S : start" + "\n" + "P : pause" + "\n" + "R : restart");
 		scoreDisplay.setText("0");
 	}
 	
@@ -32,6 +33,7 @@ public class B10432009_Display extends TetrisDisplay {
 
 		viewBorder = new JLabel();
 		nextBorder = new JLabel();
+		command = new JLabel();
 
 		scoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		scoreLabel.setFont(new Font("Serif", Font.BOLD, 24));
@@ -76,11 +78,18 @@ public class B10432009_Display extends TetrisDisplay {
         nextBorder.setOpaque(true);
         nextBorder.setBackground(Color.BLACK);
         add(nextBorder);
+
+        command.setText("Command");
+        command.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 24));
+        command.setForeground(Color.BLUE);
+        command.setBackground(SystemColor.control);
+        command.setBounds(405, 550, 110, 300);
+		add(command);
         
         commandLabel.setFont(new Font("Serif", Font.BOLD, 20));
         commandLabel.setForeground(Color.BLACK);
         commandLabel.setBackground(SystemColor.control);
-        commandLabel.setBounds(410, 400, 100, 300);
+        commandLabel.setBounds(415, 715, 100, 300);
         commandLabel.setFocusable(false);
 		add(commandLabel);
         
