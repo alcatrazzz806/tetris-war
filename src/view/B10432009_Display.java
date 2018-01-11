@@ -84,6 +84,7 @@ public class B10432009_Display extends TetrisDisplay {
         command.setForeground(Color.BLUE);
         command.setBackground(SystemColor.control);
         command.setBounds(405, 550, 110, 300);
+        command.setFocusable(false);
 		add(command);
         
         commandLabel.setFont(new Font("Serif", Font.BOLD, 20));
