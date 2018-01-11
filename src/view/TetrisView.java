@@ -96,11 +96,13 @@ public class TetrisView extends JPanel implements ActionListener {
 	public void switchTestLabelOn() {
 		testLabel.setForeground(Color.WHITE);
 		testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+		testLabel.setVisible(true);
 	}
 	
 	public void switchTestLabelOff() {
-		testLabel.setForeground(Color.BLACK);
-		testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+		//testLabel.setForeground(Color.BLACK);
+		//testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+		testLabel.setVisible(false);
 	}
 	
 	void start() {

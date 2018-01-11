@@ -75,6 +75,7 @@ public class B10432032_Display extends TetrisDisplay {
 			testLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 22));
 			testLabel.setForeground(Color.WHITE.darker());
 			testLabel.setBounds(25,35,280,560);
+			testLabel.setVisible(true);
 			add(testLabel);
 			
 	        startButton.setBounds(350, 400, 100, 50);
