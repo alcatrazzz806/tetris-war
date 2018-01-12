@@ -1,6 +1,5 @@
 package view;
 
-import controller.TetrisController;
 import model.*;
 
 import javax.swing.*;
@@ -9,13 +8,11 @@ import java.awt.*;
 public class NextBlock extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	private TetrisController controller;
 	private TetrisModel model;
 	private TetrisDisplay display;
 	
-	public NextBlock(TetrisDisplay display, TetrisController TC) {
+	public NextBlock(TetrisDisplay display) {
 		this.display = display;
-		controller = TC;
 	}
 	
 	public void knowModel(TetrisModel newModel) {
@@ -35,6 +32,7 @@ public class NextBlock extends JPanel {
         int squareHeight = (int) height / boardHeight;
         int boardTop = (int) height - boardHeight * squareHeight;
         
+        // Draw the next block on the NextBlock panel.
         if (model.getNextBlock().getBlockShape() == Block.Tetris_block.O ||
         		model.getNextBlock().getBlockShape() == Block.Tetris_block.S ||
         		model.getNextBlock().getBlockShape() == Block.Tetris_block.J) {
@@ -58,13 +56,10 @@ public class NextBlock extends JPanel {
         }
     }
 	
-	void start() {
-        controller.start();
-    }
-	
     private int squareWidth() { return (int) getSize().getWidth() / model.getNextBoardWidth(); }
     private int squareHeight() { return (int) getSize().getHeight() / model.getNextBoardHeight(); }
     
+    // The actual method of drawing the squares
     public void drawSquare(Graphics g, int x, int y, Block.Tetris_block block)
     {   
         Color color = display.getBlockColor(block.ordinal());

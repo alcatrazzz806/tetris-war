@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Block {
+	// Enum for the 7 shapes of blocks and a empty one
 	public enum Tetris_block {
 		Empty, Z, S, I, T, O, L, J 
 	}
@@ -16,6 +17,7 @@ public class Block {
 	
 	public Block() {
 		coordinates = new int[4][2];
+		// The coordinates of the block shapes
 		coordTable = new int [][][] {
 			{{0, 0}, {0, 0}, {0, 0}, {0, 0}},		// Empty
             {{0, -1}, {0, 0}, {-1, 0}, {-1, 1}},	// Z
@@ -27,9 +29,11 @@ public class Block {
             {{1, -1}, {0, -1}, {0, 0}, {0, 1}}		// J
 		};
 		
+		// Set the initial block to empty
 		setBlockShape(Tetris_block.Empty);
 	}
 	
+	// Set the shape of block
 	public void setBlockShape(Tetris_block newShape) {
 		for (int i = 0; i < 4; i++) {
 			System.arraycopy(coordTable[newShape.ordinal()][i], 0, coordinates[i], 0, 2);
@@ -37,26 +41,32 @@ public class Block {
 		this.blockShape = newShape;
 	}
 	
+	// Set the x-axis coordinate of the block
 	private void setX(int index, int x) {
 		coordinates[index][0] = x;
 	}
 	
+	// Set the y-axis coordinate of the block
 	private void setY(int index, int y ) {
 		coordinates[index][1] = y;
 	}
 	
+	// Get the x-axis coordinate of the block
 	public int x (int index) {
 		return coordinates[index][0];
 	}
 	
+	// Get the y-axis coordinate of the block
 	public int y (int index) {
 		return coordinates[index][1];
 	}
 	
+	// Get the shape of the block
 	public Tetris_block getBlockShape() {
 		return blockShape;
 	}
-		
+	
+	// Change the order of out coming shape, produce new order every 7 times.
 	public void setRandomShape() {
 		if(genCount == 0) {
 			Random random = ThreadLocalRandom.current();
@@ -77,6 +87,7 @@ public class Block {
 		}
 	}
 	
+	// Get the minimum x coordinate.
 	public int xMin() {
         int m = coordinates[0][0];
         for (int i = 0; i < 4; i++) {
@@ -85,7 +96,7 @@ public class Block {
         return m;
     }
 
-
+	// Get the minimum y coordinate.
     public int yMin() {
         int m = coordinates[0][1];
         for (int i = 0; i < 4; i++) {
@@ -94,6 +105,7 @@ public class Block {
         return m;
     }
 
+    // Rotate the block 90 degrees clockwise
 	public Block rotateRight() {
 		if (blockShape == Tetris_block.O) {
 			return this;

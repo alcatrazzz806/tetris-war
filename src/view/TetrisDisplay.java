@@ -40,7 +40,7 @@ public class TetrisDisplay extends JFrame {
         startButton = new JButton("Start");
         pauseButton = new JButton("Pause");
         view = new TetrisView(this, controller);
-        next = new NextBlock(this, controller);
+        next = new NextBlock(this);
     }
     
     public void init() {

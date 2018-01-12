@@ -77,12 +77,14 @@ public class TetrisModel {
 		return currentBlock.getBlockShape() == Block.Tetris_block.Empty;
 	}
 	
+	// Erase the board.
 	public void clearBoard() {
 		for (int i = 0; i < boardWidth * boardHeight; i++) {
 			board[i] = Block.Tetris_block.Empty;
 		}
 	}
 	
+	// Erase the NextBlock panel.
 	public void clearNextBoard() {
 		for (int i = 0; i < nextboardWidth * nextboardHeight; i++) {
 			nextboard[i] = Block.Tetris_block.Empty;
@@ -93,12 +95,14 @@ public class TetrisModel {
         return board[(y * boardWidth) + x];
     }
 	
+	// Get the first block of the game.
 	public void initialBlock()
     {
 		currentBlock.setBlockShape(Tetris_block.Empty);
         nextBlock.setRandomShape();
     }
 	
+	// Get a new block.
 	public void newBlock()
     {
         currentBlock.setBlockShape(nextBlock.getBlockShape());
@@ -118,6 +122,7 @@ public class TetrisModel {
         }
     }
 	
+	// Try to move the block using the input coordinate, return true if successful.
 	public boolean tryMove(int newX, int newY)
     {
 		Block newBlock = new Block();
@@ -138,6 +143,7 @@ public class TetrisModel {
         return true;
     }
 	
+	// Try to rotate the block 90 degrees clockwise.
 	public void rotateRight() {
 		Block newBlock = new Block();
 		newBlock = currentBlock.rotateRight();
@@ -155,6 +161,7 @@ public class TetrisModel {
         return;
 	}
 	
+	// Remove lines that have been filled up
 	private void removeFullLines()
     {
         int numFullLines = 0;
@@ -202,6 +209,7 @@ public class TetrisModel {
         }
     }
 	
+	// Notify a block has dropped and gets a new block.
 	public void pieceDropped()
     {
         for (int i = 0; i < 4; ++i) {
@@ -209,7 +217,8 @@ public class TetrisModel {
             int y = currentY - currentBlock.y(i);
             board[(y * boardWidth) + x] = currentBlock.getBlockShape();
         }
-
+        
+        // Check if there is full lines every time a piece has dropped
         removeFullLines();
 
         if (!fallingFinished)

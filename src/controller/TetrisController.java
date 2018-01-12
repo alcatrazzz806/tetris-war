@@ -14,11 +14,11 @@ public class TetrisController {
 	private Timer timer;
 	
 	public TetrisController() {
-		display = new B10432009_Display(this);
+		//display = new B10432009_Display(this);
 		//display = new B10432018_Display(this);
 		//display = new B10432032_Display(this);
 		//display = new B10432033_Display(this);
-		//display = new B10432034_Display(this);
+		display = new B10432034_Display(this);
 		//display = new TetrisDisplay(this);
 		view = display.getTetrisView();
 		next = display.getNextBlock();
@@ -29,6 +29,7 @@ public class TetrisController {
 		timer = new Timer(800, view);
 	}
 	
+	// Initialize the game
 	public void start() {
         if (model.isPaused()) return;
         model.setStarted(true);
@@ -42,6 +43,7 @@ public class TetrisController {
         timer.start();
     }
 	
+	// Initialize the game
 	public void restart() {
 		view.setStatusText("Playing");
 		view.setScoreDisplay("0");
@@ -65,6 +67,8 @@ public class TetrisController {
 		else if (model.isFallingFinished()) {
             model.setFallingFinished(!model.isFallingFinished());
             model.newBlock();
+            
+            // Level mechanism
             if (0 <= model.getScore() && model.getScore() <= 1000)
             {
                 timer.setDelay(800);
@@ -90,6 +94,7 @@ public class TetrisController {
         }
     }
 	
+	// Initialize the program
 	public void init() {
 		display.init();
 		pause();

@@ -56,7 +56,7 @@ public class TetrisView extends JPanel implements ActionListener {
         int squareHeight = (int) height / boardHeight;
         int boardTop = (int) height - boardHeight * squareHeight;
 
-
+        // Draw the blocks on the board
         for (int i = 0; i < boardHeight; ++i) {
             for (int j = 0; j < boardWidth; ++j) {
                 Block.Tetris_block block = model.shapeAt(j, boardHeight - i - 1);
@@ -66,6 +66,7 @@ public class TetrisView extends JPanel implements ActionListener {
             }
         }
 
+        // Draw the current block on the board
         if (model.getCurrentBlock().getBlockShape() != Block.Tetris_block.Empty) {
             for (int i = 0; i < 4; ++i) {
                 int x = model.getCurrentX() + model.getCurrentBlock().x(i);
@@ -112,6 +113,7 @@ public class TetrisView extends JPanel implements ActionListener {
     private int squareWidth() { return (int) getSize().getWidth() / model.getBoardWidth(); }
     private int squareHeight() { return (int) getSize().getHeight() / model.getBoardHeight(); }
     
+    // The actual method of drawing the squares
     public void drawSquare(Graphics g, int x, int y, Block.Tetris_block block)
     {   
         Color color = display.getBlockColor(block.ordinal());
@@ -154,6 +156,7 @@ public class TetrisView extends JPanel implements ActionListener {
         controller.gameAction();
     }
     
+    // Get input from the user
 	private class KeyInput extends KeyAdapter {
         public void keyPressed(KeyEvent e) {
 
